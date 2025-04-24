@@ -1,0 +1,1090 @@
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #00cec9;
+  --accent-color: #fd79a8;
+  --dark-color: #2d3436;
+  --light-color: #f5f6fa;
+  --gradient-bg: linear-gradient(135deg, #6c5ce7, #00cec9);
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--light-color);
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+/* Space background */
+.space-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+/* Stars layer 1 - slower moving */
+.stars-layer-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      1px 1px at 25px 5px,
+      white,
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(1px 1px at 50px 25px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 125px 20px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.5px 1.5px at 50px 75px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 175px 15px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(2.5px 2.5px at 200px 80px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 250px 50px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 300px 35px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.5px 1.5px at 350px 60px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 400px 30px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 75px 45px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.2px 1.2px at 225px 70px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.8px 1.8px at 275px 110px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 325px 90px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 375px 130px, white, rgba(255, 255, 255, 0));
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  animation: stars-animation-1 60s linear infinite; /* increased speed from 100s to 60s */
+  z-index: -1;
+}
+
+/* Stars layer 2 - faster moving */
+.stars-layer-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      1px 1px at 10px 10px,
+      white,
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(1px 1px at 150px 150px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.5px 1.5px at 60px 170px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 175px 180px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 195px 95px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 95px 145px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 220px 220px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.5px 1.5px at 120px 120px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 45px 85px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.2px 1.2px at 80px 210px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.7px 1.7px at 135px 65px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 190px 230px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.3px 1.3px at 230px 45px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1.8px 1.8px at 270px 110px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 310px 180px, white, rgba(255, 255, 255, 0));
+  background-repeat: repeat;
+  background-size: 350px 350px;
+  animation: stars-animation-2 30s linear infinite; /* increased speed from 60s to 30s */
+  z-index: -1;
+}
+.stars-layer-3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      0.8px 0.8px at 5px 20px,
+      white,
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(0.8px 0.8px at 35px 55px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(0.9px 0.9px at 85px 30px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(0.8px 0.8px at 115px 75px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 155px 25px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(0.8px 0.8px at 185px 55px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(0.9px 0.9px at 215px 40px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(0.8px 0.8px at 245px 65px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 275px 35px, white, rgba(255, 255, 255, 0)),
+    radial-gradient(0.8px 0.8px at 305px 70px, white, rgba(255, 255, 255, 0));
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: stars-animation-3 15s linear infinite; /* very fast stars */
+  z-index: -1;
+}
+
+/* Animation for stars */
+@keyframes stars-animation-1 {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(500px) translateX(500px);
+  }
+}
+
+@keyframes stars-animation-2 {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(350px) translateX(-350px);
+  }
+}
+
+/* Animation for stars layer 3 */
+@keyframes stars-animation-3 {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(300px) translateX(-150px);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(15, 12, 41, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+/* Container star effect */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      1px 1px at 20px 30px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 60px 40px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1.5px 1.5px at 120px 30px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 90px 80px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      2px 2px at 160px 60px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: container-stars 80s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes container-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200px);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-bg);
+  border-radius: 2px;
+}
+
+.header h1 {
+  background: var(--gradient-bg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header p {
+  color: var(--light-color);
+  opacity: 0.9;
+  font-size: 1.2rem;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.choice {
+  background-color: rgba(15, 12, 41, 0.7);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(108, 92, 231, 0.5);
+}
+
+.choice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.choice::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      1px 1px at 10px 10px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 30px 30px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 60px 60px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  animation: choice-stars 60s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes choice-stars {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(100px) rotate(360deg);
+  }
+}
+
+.choice:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+.choice:hover::before {
+  opacity: 0.2;
+}
+
+.choice img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  z-index: 2;
+  position: relative;
+  border-radius: 50%;
+}
+
+.choice:hover img {
+  transform: scale(1.1);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  background: rgba(15, 12, 41, 0.5);
+  border-radius: 15px;
+  padding: 25px;
+  position: relative;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  z-index: 2;
+}
+
+/* Scoreboard star effect */
+.scoreboard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      1px 1px at 30px 10px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 70px 40px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 110px 20px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  animation: scoreboard-stars 70s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes scoreboard-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(150px);
+  }
+}
+
+.score {
+  text-align: center;
+  padding: 15px 25px;
+  background-color: rgba(15, 12, 41, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Score star effect */
+.score::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      1px 1px at 15px 15px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 45px 45px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+  background-repeat: repeat;
+  background-size: 60px 60px;
+  animation: score-stars 50s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes score-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(60px);
+  }
+}
+.score:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.score h3 {
+  margin-bottom: 10px;
+  color: var(--light-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.score p {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.user-score p {
+  color: var(--secondary-color);
+}
+
+.computer-score p {
+  color: var(--accent-color);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.popup-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  background-color: rgba(15, 12, 41, 0.9);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(0.8) translateY(30px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(108, 92, 231, 0.5);
+  position: relative;
+  overflow: hidden;
+  color: var(--light-color);
+}
+
+/* Popup star effect */
+.popup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      1px 1px at 20px 20px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 60px 60px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1.5px 1.5px at 100px 40px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 140px 80px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  animation: popup-stars 60s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes popup-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(180px);
+  }
+}
+
+.popup-overlay.show .popup {
+  transform: scale(1) translateY(0);
+}
+
+.popup h2 {
+  background: var(--gradient-bg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.popup p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+.result-icon {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6c5ce7, #00cec9);
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.5);
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Icon star effect */
+.result-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      1px 1px at 10px 10px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(
+      1px 1px at 30px 30px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)
+    );
+  background-repeat: repeat;
+  background-size: 40px 40px;
+  animation: icon-stars 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes icon-stars {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(40px) rotate(360deg);
+  }
+}
+
+.result-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+/* For responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+  }
+
+  .choice {
+    width: 120px;
+    height: 120px;
+  }
+
+  .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .result-icon {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .choice {
+    width: 100px;
+    height: 100px;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .score {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .popup {
+    padding: 25px;
+  }
+
+  .popup h2 {
+    font-size: 1.8rem;
+  }
+
+  .popup p {
+    font-size: 1.1rem;
+  }
+}
+/* Base responsive styles - enhancing what you already have */
+
+/* General responsive adjustments */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 90%;
+    padding: 35px;
+  }
+
+  .choice {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+    max-width: 95%;
+  }
+
+  .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .choices {
+    gap: 20px;
+  }
+
+  .choice {
+    width: 120px;
+    height: 120px;
+  }
+
+  .choice:hover {
+    transform: translateY(-10px) scale(1.03);
+  }
+
+  .score {
+    padding: 12px 20px;
+    min-width: 130px;
+  }
+
+  .score h3 {
+    font-size: 1.1rem;
+  }
+
+  .score p {
+    font-size: 2.2rem;
+  }
+
+  .result-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
+  }
+
+  .popup h2 {
+    font-size: 1.8rem;
+  }
+
+  .popup p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media (max-width: 576px) {
+  .container {
+    padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .header::after {
+    width: 80px;
+    height: 3px;
+    bottom: -12px;
+  }
+
+  .choices {
+    gap: 15px;
+    margin-bottom: 35px;
+  }
+
+  .choice {
+    width: 100px;
+    height: 100px;
+    border-width: 1.5px;
+  }
+
+  .choice:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 25px;
+  }
+
+  .score {
+    width: 100%;
+    padding: 10px 15px;
+  }
+
+  .score h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .score p {
+    font-size: 1.8rem;
+  }
+
+  .popup {
+    padding: 25px 20px;
+    width: 85%;
+    max-width: 320px;
+  }
+
+  .result-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .popup h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .popup p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 375px) {
+  .container {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header p {
+    font-size: 0.85rem;
+  }
+
+  .choices {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .choice {
+    width: 85px;
+    height: 85px;
+    border-width: 1px;
+  }
+
+  .choice img {
+    width: 65%;
+    height: 65%;
+  }
+
+  .scoreboard {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .score {
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+
+  .score h3 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .score p {
+    font-size: 1.6rem;
+  }
+
+  .result-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+
+  .popup h2 {
+    font-size: 1.4rem;
+  }
+
+  .popup p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Responsive adjustments for star backgrounds */
+@media (max-width: 768px) {
+  /* Adjust star sizes and density for smaller screens */
+  .stars-layer-1,
+  .stars-layer-2,
+  .stars-layer-3 {
+    background-size: 250px 250px;
+  }
+
+  @keyframes stars-animation-1 {
+    from {
+      transform: translateY(0) translateX(0);
+    }
+    to {
+      transform: translateY(250px) translateX(250px);
+    }
+  }
+
+  @keyframes stars-animation-2 {
+    from {
+      transform: translateY(0) translateX(0);
+    }
+    to {
+      transform: translateY(175px) translateX(-175px);
+    }
+  }
+
+  @keyframes stars-animation-3 {
+    from {
+      transform: translateY(0) translateX(0);
+    }
+    to {
+      transform: translateY(150px) translateX(-75px);
+    }
+  }
+}
+
+/* Portrait orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .choices {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .choice {
+    width: 80px;
+    height: 80px;
+  }
+
+  .scoreboard {
+    padding: 15px;
+    flex-direction: row;
+  }
+
+  .score {
+    min-width: 100px;
+  }
+
+  .score h3 {
+    font-size: 0.9rem;
+  }
+
+  .score p {
+    font-size: 1.6rem;
+  }
+}
+
+/* High-density (retina) displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Enhance star clarity for high-resolution screens */
+  .stars-layer-1,
+  .stars-layer-2,
+  .stars-layer-3 {
+    background-size: 1.5 * 350px 1.5 * 350px;
+  }
+
+  .container::before,
+  .choice::after,
+  .scoreboard::before,
+  .score::before,
+  .popup::before,
+  .result-icon::before {
+    background-size: 1.5 * 200px 1.5 * 200px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light-color: #f8f9fa;
+  }
+
+  .space-background {
+    background: linear-gradient(to bottom, #0a0818, #1c1a3b, #1a1a32);
+  }
+}
+
+/* Accessibility improvements for reduced motion */
+@media (prefers-reduced-motion) {
+  .stars-layer-1,
+  .stars-layer-2,
+  .stars-layer-3,
+  .container::before,
+  .choice::after,
+  .scoreboard::before,
+  .score::before,
+  .popup::before,
+  .result-icon::before {
+    animation: none;
+  }
+
+  .choice:hover {
+    transform: translateY(-5px);
+  }
+
+  .popup-overlay.show .popup {
+    transition: opacity 0.4s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .space-background,
+  .stars-layer-1,
+  .stars-layer-2,
+  .stars-layer-3 {
+    display: none;
+  }
+
+  body,
+  .container {
+    background: white;
+    color: black;
+  }
+
+  .header h1,
+  .popup h2 {
+    color: #6c5ce7;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+  }
+
+  .score,
+  .choice,
+  .popup {
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+}

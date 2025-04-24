@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <!-- Space Background with moving stars -->
+    <div class="space-background"></div>
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+
+    <div class="container">
+      <div class="header">
+        <h1>Rock Paper Scissors</h1>
+        <p>Choose your weapon</p>
+      </div>
+
+      <div class="choices">
+        <div class="choice" id="rock">
+          <img src="./assets/rock.png" alt="Rock" name="rock" />
+        </div>
+        <div class="choice" id="paper">
+          <img src="./assets/paper.png" alt="Paper" name="paper" />
+        </div>
+        <div class="choice" id="scissors">
+          <img src="./assets/scissor.png" alt="Scissors" name="scissor" />
+        </div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="score user-score">
+          <h3>YOU</h3>
+          <p id="user-score">0</p>
+        </div>
+        <div class="score computer-score">
+          <h3>COMPUTER</h3>
+          <p id="computer-score">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Popup -->
+    <div class="popup-overlay" id="result-popup">
+      <div class="popup">
+        <div class="result-icon">
+          <img src="./assets/trophy.png" alt="Trophy" />
+        </div>
+        <h2>Computer Won!</h2>
+        <p>Paper beats Rock</p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
